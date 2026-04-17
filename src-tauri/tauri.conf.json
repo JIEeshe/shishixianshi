@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "实时显示",
+  "version": "0.1.0",
+  "identifier": "com.jieeshe.shishixianshi",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "实时显示",
+        "width": 320,
+        "height": 150,
+        "minWidth": 320,
+        "minHeight": 150,
+        "maxWidth": 320,
+        "maxHeight": 150,
+        "decorations": false,
+        "resizable": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "shadow": false,
+        "transparent": false,
+        "visible": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "shortDescription": "Show Claude and Codex quota in a minimal desktop HUD."
+  }
+}
