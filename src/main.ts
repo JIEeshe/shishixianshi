@@ -69,6 +69,7 @@ const setupTray = async (): Promise<void> => {
   }
 
   const window = getCurrentWindow();
+  const icon = await defaultWindowIcon();
   const trayMenu = await Menu.new({
     items: [
       {
@@ -101,12 +102,17 @@ const setupTray = async (): Promise<void> => {
     ],
   });
 
-  await TrayIcon.new({
-    icon: await defaultWindowIcon(),
+  const trayOptions: Parameters<typeof TrayIcon.new>[0] = {
     tooltip: "实时显示",
     menu: trayMenu,
     showMenuOnLeftClick: true,
-  });
+  };
+
+  if (icon) {
+    trayOptions.icon = icon;
+  }
+
+  await TrayIcon.new(trayOptions);
 };
 
 const bootstrap = async (): Promise<void> => {
