@@ -1,6 +1,6 @@
-use crate::providers::{mock_overlay_snapshot, OverlaySnapshot};
+use crate::providers::{OverlaySnapshot, build_overlay_snapshot};
 
 #[tauri::command]
 pub fn get_overlay_snapshot() -> OverlaySnapshot {
-    mock_overlay_snapshot()
+    build_overlay_snapshot()
 }
